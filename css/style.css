@@ -1,0 +1,164 @@
+*,
+::before,
+::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    min-height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 450px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2em;
+    padding-top: 1em;
+}
+
+header {
+    padding: 10px 20px;
+    display: flex;
+    height: 2.5em;
+    width: 100%;
+}
+
+header .menu {
+    width: 20px;
+    height: auto;
+}
+
+header .logo {
+    width: 100px;
+    height: auto;
+    margin: 0 20px;
+}
+
+header  .cart{
+    width: 20px;
+    height: auto;
+    margin-left: auto;
+    margin-right: 20px;
+}
+
+header .avatar {
+    width: 20px;
+    height: auto;
+}
+
+header ul {
+    display: none;
+}
+
+
+.product .normal {
+    display: none;
+}
+
+.product .thumbnail {
+    position: relative;
+}
+
+.product .thumbnail .previous {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+}
+
+.product .thumbnail .next {
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    transform: translateY(-50%);
+}
+
+.product .thumbnail .carousel {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+}
+
+.product .thumbnail .carousel img {
+    width: 100%;
+    height: auto;
+}
+
+.info {
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.info h1 {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+}
+
+.info p {
+    font-size: 1.2em;
+    line-height: 1.8;
+    opacity: 0.8;
+}
+
+.info .price {
+    display: flex;
+}
+
+.info .price .discount {
+    display: flex;
+}
+
+.info .price .discount .current {
+    font-size: larger;
+    font-weight: bolder;
+}
+
+.info .price .discount .rate {
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.info .price .discount .previous {
+    text-decoration: line-through;
+    opacity: 0.6;
+    margin-left: auto;
+}
+
+.info .cart {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.info .cart .minus-plus {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    background-color: rgb(155, 153, 153);
+    justify-content: space-between;
+    color: black;
+    font-weight: bold;
+}
+
+.info .cart .minus-plus button {
+    background-color: rgb(216, 104, 39);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    padding: 1em 0;
+    width: 100%;
+    border-radius: 10px;
+    justify-content: center;
+}
