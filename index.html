@@ -11,50 +11,63 @@
 
 <body>
   <div class="container">
+    <div class="mask"></div>
     <header>
-      <nav>
-        <img class="menu" src="./images/icon-menu.svg" alt="menu">
-        <ul>
-          <li>Collections</li>
-          <li>Men</li>
-          <li>Women</li>
-          <li>About</li>
-          <li>Contact</li>
-        </ul>
-      </nav>
+      <img class="menu" src="./images/icon-menu.svg" alt="menu">
       <img class="logo" src="./images/logo.svg" alt="logo">
-      <img class="cart" src="./images/icon-cart.svg" alt="cart">
+      <nav>
+        <div class="tab">
+          <img class="close" src="./images/icon-close.svg" alt="close">
+          <ul>
+            <li>Collections</li>
+            <li>Men</li>
+            <li>Women</li>
+            <li>About</li>
+            <li>Contact</li>
+          </ul>
+        </div>
+      </nav>
+      <img class="iconcart" src="./images/icon-cart.svg" alt="cart">
       <img class="avatar" src="./images/image-avatar.png" alt="cart">
     </header>
 
-    <section class="cart">
-      <span class="name">Cart</span>
-      <hr>
-      <div class="item">
-        <!-- 增加indexHtml -->
-        <button>Checkout</button>
-      </div>
-      <div class="empty">
-        <span>Your cart is empty.</span>
-      </div>
-    </section>
-
     <section class="product">
       <div class="normal">
-        <img src="./images/image-product-1.jpg" alt="Sneaker Image 1">
-        <img src="./images/image-product-2.jpg" alt="Sneaker Image 2">
-        <img src="./images/image-product-3.jpg" alt="Sneaker Image 3">
-        <img src="./images/image-product-4.jpg" alt="Sneaker Image 4">
-      </div>
-      <div class="thumbnail">
-        <img class="previous" src="./images/icon-previous.svg" alt="Previous">
-        <div class="carousel">
+        <img class="bigimg" src="./images/image-product-1.jpg" alt="image">
+        <img class="bigimg" src="./images/image-product-2.jpg" alt="Sneaker Image 2">
+        <img class="bigimg" src="./images/image-product-3.jpg" alt="Sneaker Image 3">
+        <img class="bigimg" src="./images/image-product-4.jpg" alt="Sneaker Image 4">
+        <div class="imgset">
           <img src="./images/image-product-1-thumbnail.jpg" alt="Sneaker Thumbnail 1">
           <img src="./images/image-product-2-thumbnail.jpg" alt="Sneaker Thumbnail 2">
           <img src="./images/image-product-3-thumbnail.jpg" alt="Sneaker Thumbnail 3">
           <img src="./images/image-product-4-thumbnail.jpg" alt="Sneaker Thumbnail 4">
         </div>
+      </div>
+
+      <div class="thumbnail">
+        <img class="previous" src="./images/icon-previous.svg" alt="Previous">
+        <div class="carousel">
+          <img src="./images/image-product-1.jpg" alt="Sneaker Image 1">
+          <img src="./images/image-product-2.jpg" alt="Sneaker Image 2">
+          <img src="./images/image-product-3.jpg" alt="Sneaker Image 3">
+          <img src="./images/image-product-4.jpg" alt="Sneaker Image 4">
+        </div>
         <img class="next" src="./images/icon-next.svg" alt="Next">
+      </div>
+    </section>
+
+    
+    <section class="cart">
+      <span class="name">Cart</span>
+      <hr>
+      <div class="item">
+        <!-- 增加indexHtml -->
+        <div></div>
+        <button>Checkout</button>
+      </div>
+      <div class="empty">
+        <span>Your cart is empty.</span>
       </div>
     </section>
 
@@ -70,7 +83,7 @@
         </div>
         <span class="orignal">$250.00</span>
       </div>
-      <div class="cart">
+      <div class="buy">
         <div class="minus-plus">
           <img class="minus" src="./images/icon-minus.svg" alt="minus">
           <span class="quantity">0</span>

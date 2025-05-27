@@ -20,8 +20,23 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 2em;
+    gap: 1em;
     padding-top: 1em;
+}
+
+.container .mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(26, 25, 25, 0.5);
+    z-index: 5;
+    display: none;
+}
+
+.container .mask.active {
+    display: block;
 }
 
 header {
@@ -42,7 +57,7 @@ header .logo {
     margin: 0 20px;
 }
 
-header  .cart{
+header .iconcart{
     width: 20px;
     height: auto;
     margin-left: auto;
@@ -54,10 +69,95 @@ header .avatar {
     height: auto;
 }
 
-header ul {
+header .tab {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 30%;
+    display: none;
+    flex-direction: column;
+    background-color: white;
+    z-index: 6;
+    padding: 1em;
+}
+
+header .tab.active {
+    display: flex;
+}
+
+header .tab img {
+    width: 20px;
+    height: 20px;
+    margin-bottom: 4em;
+}
+
+header .tab ul {
+    list-style: none;
+    font-size: large;
+    font-weight: bolder;
+}
+
+header .tab ul li+li {
+    margin: 1.5em 0;
+
+}
+
+.cart {
+    position: fixed;
+    top: calc(2.5em + 3em);
+    left: 1em;
+    right: 1em;
+    height: 300px;
+    background-color: white;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    flex-direction: column;
+    z-index: 3;
+    border-radius: 10px;
     display: none;
 }
 
+.cart.active {
+    display: flex;
+}
+
+.cart .name {
+    margin: 1em 0 2em 1em;
+    font-weight: bolder;
+}
+
+.cart .item {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    display: none;
+}
+
+.cart hr {
+    border: none;
+    border-top: 1px solid #ccc;
+}
+
+.cart .item button {
+    margin-top: auto;
+    border-radius: 10px;
+    padding: 1em;
+    width: 100%;
+    background-color: rgb(216, 104, 39);
+    color: black;
+    border: none;
+    font-weight: bolder;
+}
+
+.cart .empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    /* display: none; */
+}
 
 .product .normal {
     display: none;
@@ -65,6 +165,7 @@ header ul {
 
 .product .thumbnail {
     position: relative;
+    overflow: hidden;
 }
 
 .product .thumbnail .previous {
@@ -72,6 +173,7 @@ header ul {
     top: 50%;
     left: 10%;
     transform: translateY(-50%);
+    z-index: 1;
 }
 
 .product .thumbnail .next {
@@ -79,24 +181,25 @@ header ul {
     top: 50%;
     right: 10%;
     transform: translateY(-50%);
+    z-index: 1;
 }
 
 .product .thumbnail .carousel {
     display: flex;
-    overflow: hidden;
     width: 100%;
 }
 
 .product .thumbnail .carousel img {
     width: 100%;
     height: auto;
+    flex-shrink: 0;
 }
 
 .info {
     padding: 2em;
     display: flex;
     flex-direction: column;
-    gap: 1em;
+    gap: 2em;
 }
 
 .info h1 {
@@ -105,8 +208,8 @@ header ul {
 }
 
 .info p {
-    font-size: 1.2em;
-    line-height: 1.8;
+    font-size: 1em;
+    line-height: 1.5;
     opacity: 0.8;
 }
 
@@ -119,7 +222,7 @@ header ul {
 }
 
 .info .price .discount .current {
-    font-size: larger;
+    font-size: x-large;
     font-weight: bolder;
 }
 
@@ -127,32 +230,39 @@ header ul {
     background-color: black;
     color: white;
     border-radius: 5px;
-    padding: 10px;
+    padding: 2px 5px;
+    margin-left: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.info .price .discount .previous {
+.info .price  .orignal {
     text-decoration: line-through;
     opacity: 0.6;
     margin-left: auto;
 }
 
-.info .cart {
+.info .buy {
     display: flex;
     flex-direction: column;
     gap: 1em;
 }
 
-.info .cart .minus-plus {
+.info .buy .minus-plus {
     display: flex;
     align-items: center;
     gap: 1em;
-    background-color: rgb(155, 153, 153);
+    background-color: rgb(233, 224, 224);
     justify-content: space-between;
     color: black;
     font-weight: bold;
+    height: 2.5em;
+    padding: 0 2em;
+    border-radius: 10px;
 }
 
-.info .cart .minus-plus button {
+.info .buy  button {
     background-color: rgb(216, 104, 39);
     border: none;
     cursor: pointer;
@@ -161,4 +271,112 @@ header ul {
     width: 100%;
     border-radius: 10px;
     justify-content: center;
+    padding: 1em;
+    gap: 1em;
+    align-items: center;
+}
+
+.info .buy  button span{    
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+
+@media(min-width: 768px) {
+    .container {
+        max-width: 980px;
+        flex-direction: row;
+        margin-top: 8em;
+    }
+    .container .mask {
+        right: 0;
+    }
+
+    .container .menu {
+        display: none;
+    }
+
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: white;
+        padding: 10px 40px;
+        height: 3em;
+    }
+
+    header .tab {
+        position: static;
+        display: flex;
+        flex-direction: row;
+        background-color: white;
+        padding: 0;
+    }
+
+    header .tab ul {
+        display: flex;
+        flex-direction: row;
+        position: static;
+        margin-left: 2em;
+    }
+
+    header .tab ul li+li {
+        margin: 0 1em;
+    }
+
+    header .tab .close{
+        display: none;
+    }
+
+    .product .normal {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product .normal .bigimg {
+        width: 400px;
+        height: auto;
+        border-radius: 10px;
+        display: none;
+    }
+
+    .product .normal .bigimg.active {
+        display: block;
+    }
+
+    .product .normal .imgset {
+        display: flex;
+        width: 100%;
+        margin-top: 1em;
+        justify-content: space-between;
+        
+    }
+
+    .product .normal .imgset img {
+        border-radius: 10px;
+        width: 90px;
+    }
+
+    .product .normal .imgset img:hover {
+        cursor: pointer;
+        opacity: 0.5;
+    }
+
+    .product .thumbnail {
+        display: none;
+    }
+
+    .info .price {
+        flex-direction: column;
+    }
+
+    .info .price .orignal {
+        margin: 1em 0;
+    }
+
+    .info .buy {
+        flex-direction: row;
+    }
 }
